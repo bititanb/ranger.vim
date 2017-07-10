@@ -1,3 +1,9 @@
+Fixed for neovim:
+==========
+* bclose.vim no more needed
+* opening in new tab instead of new buffer
+* fixed bugs
+
 Ranger.vim
 ==========
 

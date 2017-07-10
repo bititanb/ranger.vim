@@ -28,7 +28,7 @@ if has('nvim')
     let currentPath = expand(a:path)
     let rangerCallback = { 'name': 'ranger', 'edit_cmd': a:edit_cmd }
     function! rangerCallback.on_exit(id, code, _event)
-      silent! Bclose!
+      bd!
       try
         if filereadable('/tmp/chosenfile')
           exec system('sed -ie "s/ /\\\ /g" /tmp/chosenfile')
@@ -38,7 +38,7 @@ if has('nvim')
         endif
       endtry
     endfunction
-    enew
+    tabnew
     call termopen('ranger --choosefiles=/tmp/chosenfile "' . currentPath . '"', rangerCallback)
     startinsert
   endfunction
