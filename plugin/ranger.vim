@@ -29,6 +29,7 @@ if has('nvim')
     let rangerCallback = { 'name': 'ranger', 'edit_cmd': a:edit_cmd }
     function! rangerCallback.on_exit(id, code, _event)
       bd!
+      tabprev
       try
         if filereadable('/tmp/chosenfile')
           exec system('sed -ie "s/ /\\\ /g" /tmp/chosenfile')
